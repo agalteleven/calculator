@@ -1,0 +1,13 @@
+import turtle
+t = turtle.Turtle()
+s = turtle.Screen()
+screen.setup(width=600, height=400)
+screen.bgcolor("cyan")
+
+
+firstnumber = turtle.textinput("First Number", "first number")
+
+operation = turtle.textinput("operation", "multiply*, divide/, subtract-, add +")
+
+secondnumber = turtle.textinput("second number", "second number")
+
