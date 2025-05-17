@@ -1,3 +1,4 @@
 *.dll
 *.a
 operations/build
+pyenv
