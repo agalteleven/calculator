@@ -1,4 +1,7 @@
 import turtle
+from libload import lib
+
+lib.hello_rust()
 sc = turtle.Screen()
 sc.setup(width=600, height=400)  
 sc.bgcolor("cyan")
