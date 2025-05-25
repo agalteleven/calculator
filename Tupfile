@@ -1,0 +1,9 @@
+: foreach operations/*.cpp |> g++ -fPIC -c %f -o %o |> operations/%B.o
+: foreach test/*.cpp |> g++ -c %f -o %o |> test/%B.o
+
+import OPERATIONS_LIB_NAME
+: operations/*.o |> g++ -fPIC -shared -o %o %f |> $(OPERATIONS_LIB_NAME)
+
+import OPERATIONS_LIB_NAME
+import EXE_EXTENSION
+: test/*.o $(OPERATIONS_LIB_NAME) |> g++ -o %o %f -L. -Wl,-rpath,'$$ORIGIN' |> test_lib$(EXE_EXTENSION)

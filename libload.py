@@ -8,15 +8,17 @@ class LibWrapper:
         self._define_functions()
 
     def _define_functions(self):
-        if hasattr(self._lib, "hello_rust"):
-            self.hello_rust = self._lib.hello_rust
-            self.hello_rust.restype = None
+        # hello: void hello()
+        if hasattr(self._lib, "hello"):
+            self.hello = self._lib.hello
+            self.hello.restype = None
+            self.hello.argtypes = []
 
-        # Add definitions for other functions here
-        # if hasattr(self._lib, "add"):
-        #     self.add = self._lib.add
-        #     self.add.restype = ctypes.c_int
-        #     self.add.argtypes = [ctypes.c_int, ctypes.c_int]
+        # fibonaci: uint64_t fibonaci(int n)
+        if hasattr(self._lib, "fibonaci"):
+            self.fibonaci = self._lib.fibonaci
+            self.fibonaci.restype = ctypes.c_uint64
+            self.fibonaci.argtypes = [ctypes.c_int]
 
 class LibLoadModule:
     def __init__(self, directory="."):
@@ -33,7 +35,7 @@ class LibLoadModule:
         elif sys.platform.startswith("darwin"):
             lib_filename = f"lib{lib_name}.dylib"
         elif sys.platform.startswith("cygwin"):
-            lib_filename = f"lib{lib_name}.dll"  # Cygwin often uses Windows DLLs
+            lib_filename = f"lib{lib_name}.dll"
         else:
             print(f"Unsupported operating system: {sys.platform}")
             return None
@@ -55,11 +57,10 @@ libload = LibLoadModule()
 lib = libload.lib
 
 if __name__ == "__main__":
-    if libload.lib:
+    if lib:
         print("Operations library loaded successfully.")
-        libload.lib.hello_rust()
-        # Example if you had an 'add' function:
-        # result = libload.lib.add(5, 10)
-        # print(f"Result of add: {result}")
+        lib.hello()
+        n = 10
+        print(f"{n}th in fibonacci sequence is: {lib.fibonaci(n)}")
     else:
         print("Failed to load the operations library.")

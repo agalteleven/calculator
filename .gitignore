@@ -2,3 +2,7 @@
 *.a
 operations/build
 pyenv
+*.so
+*.cdylib
+operations/*.o
+*.o
