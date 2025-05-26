@@ -14,11 +14,24 @@ class LibWrapper:
             self.hello.restype = None
             self.hello.argtypes = []
 
-        # fibonaci: uint64_t fibonaci(int n)
+        # fibonaci: const char *fibonaci(int n)
         if hasattr(self._lib, "fibonaci"):
             self.fibonaci = self._lib.fibonaci
-            self.fibonaci.restype = ctypes.c_uint64
+            self.fibonaci.restype = ctypes.c_char_p
             self.fibonaci.argtypes = [ctypes.c_int]
+            
+        # is_prime: bool is_prime(uint64_t n)
+        if hasattr(self._lib, "is_prime"):
+            self.is_prime = self._lib.is_prime
+            self.is_prime.restype = ctypes.c_bool
+            self.is_prime.argtypes = [ctypes.c_uint64]
+            
+		# mandelbrot: int mandelbrot(double real, double imag, int max_iterations)
+        if hasattr(self._lib, "mandelbrot"):
+            self.mandelbrot = self._lib.mandelbrot
+            self.mandelbrot.restype = ctypes.c_int
+            self.mandelbrot.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_int]
+
 
 class LibLoadModule:
     def __init__(self, directory="."):

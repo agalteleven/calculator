@@ -2,7 +2,7 @@
 : foreach test/*.cpp |> g++ -c %f -o %o |> test/%B.o
 
 import OPERATIONS_LIB_NAME
-: operations/*.o |> g++ -fPIC -shared -o %o %f |> $(OPERATIONS_LIB_NAME)
+: operations/*.o |> g++ -fPIC -shared -o %o %f -lgmpxx -lgmp |> $(OPERATIONS_LIB_NAME)
 
 import OPERATIONS_LIB_NAME
 import EXE_EXTENSION

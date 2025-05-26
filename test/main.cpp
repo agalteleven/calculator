@@ -16,7 +16,7 @@ int main()
 
 	hello();
 
-	cout << "10th in fibonacci sequence is: " << fibonaci(75) << endl;
+	cout << "200th in fibonacci sequence is: " << fibonaci(200) << endl;
 
 	freelib(lib);
 	return 0;

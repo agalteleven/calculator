@@ -5,5 +5,5 @@ extern "C"
 {
 
 	void hello();
-	uint64_t fibonaci(int n);
+	const char *fibonaci(int n);
 }

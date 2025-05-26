@@ -6,3 +6,5 @@ pyenv
 *.cdylib
 operations/*.o
 *.o
+*.exe
+test/*.o
