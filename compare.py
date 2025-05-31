@@ -1,7 +1,7 @@
 from libload import lib
 import time
 
-width, height = 100, 100
+width, height = 50, 50
 max_iter = 20000
 xmin, xmax = -2.0, 1.0
 ymin, ymax = -1.5, 1.5

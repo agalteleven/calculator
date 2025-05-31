@@ -8,3 +8,6 @@ operations/*.o
 *.o
 *.exe
 test/*.o
+.tup
+__pycache__
+.vscode
