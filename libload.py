@@ -73,7 +73,7 @@ if __name__ == "__main__":
     if lib:
         print("Operations library loaded successfully.")
         lib.hello()
-        n = 10
+        n = 100
         print(f"{n}th in fibonacci sequence is: {lib.fibonaci(n)}")
     else:
         print("Failed to load the operations library.")
