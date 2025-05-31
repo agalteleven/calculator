@@ -11,3 +11,4 @@ test/*.o
 .tup
 __pycache__
 .vscode
+test_lib
