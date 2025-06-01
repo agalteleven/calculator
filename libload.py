@@ -31,6 +31,10 @@ class LibWrapper:
             self.mandelbrot = self._lib.mandelbrot
             self.mandelbrot.restype = ctypes.c_int
             self.mandelbrot.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_int]
+        if hasattr(self._lib, "eval"):
+            self.eval = self._lib.eval
+            self.eval.restype = ctypes.c_char_p
+            self.eval.argtypes = [ctypes.c_char_p]
 
 
 class LibLoadModule:
